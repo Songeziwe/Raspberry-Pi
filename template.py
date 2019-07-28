@@ -38,19 +38,16 @@ def init_GPIO():
 
     # Ensure that all LEDs are off initially
     GPIO.output(LEDS, [0, 0, 0])
-
+    GPIO.add_event_detect(BUTTONS[0], GPIO.RISING, light_LED)
 # Function for blinking LEDs
-def light_LED(LED_channel):
-    GPIO.output(LED_channel, True)
-    sleep(1)
-    GPIO.setup(LED_channel, False)
-    sleep(1)
+def light_LED(event):
+    GPIO.output(LEDS, [1, 1, 1])
+    sleep(0.1)
+    GPIO.output(LEDS, [0, 0, 0])
 
 def main():
-    if GPIO.input(BUTTONS[0]):
-        light_LED(LEDS[2])
-
-# Only run the functions if 
+    #GPIO.add_event_detect(BUTTONS[0], GPIO.RISING, light_LED)
+    a = 0
 if __name__ == "__main__":
     # Make sure the GPIO is stopped correctly
     GPIO.setwarnings(False)
