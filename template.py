@@ -1,8 +1,6 @@
 #!/usr/bin/python3
 """
 Python Practical Template
-Keegan Crankshaw
-Readjust this Docstring as follows:
 Names: Songeziwe S. Soboois
 Student Number: SBSSON002
 Prac: Prac 0
