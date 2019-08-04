@@ -85,6 +85,9 @@ def light_LED():
     binary = convert2Binary(counter)
     GPIO.output(LEDS, binary)
 
+def turn_off_LEDS():
+    GPIO.output(LEDS, [0, 0, 0])
+    
 def main():
    light_LED()
  
@@ -97,9 +100,11 @@ if __name__ == "__main__":
             main()
     except KeyboardInterrupt:
         print("Exiting gracefully")
-        # Turn off your GPIOs here
+        # Turn off GPIOs
+        turn_off_LEDS()
         GPIO.cleanup()
     except e:
+        turn_off_LEDS()
         GPIO.cleanup()
         print("Some other error occurred")
         print(e.message)
